@@ -421,15 +421,50 @@
     .form-row { grid-template-columns: 1fr; }
     .form-card { padding: 1.75rem; }
 
-    .ci-chef { width: 140px; height: 185px; }
-    .ci-pastrami { width: 140px; height: 140px; }
-    .ci-salad { width: 120px; height: 120px; }
-    .ci-kitchen { width: 160px; height: 110px; }
-    .ci-milkshake { width: 90px; height: 130px; }
+    .about {
+      padding: 1.5rem 0;
+      height: auto;
+      min-height: auto;
+    }
 
-    .about { padding: 3rem 1rem; }
-    .about-images-top, .about-images-bottom { padding: 0; gap: 0.75rem; }
-    .about-center { padding: 1rem 0; }
+    /* Merge both rows into horizontal carousels */
+    .about-images-top,
+    .about-images-bottom {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      margin: 0;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+
+    .about-images-top::-webkit-scrollbar,
+    .about-images-bottom::-webkit-scrollbar {
+      display: none;
+    }
+
+    .about-images-top .collage-img,
+    .about-images-bottom .collage-img {
+      flex-shrink: 0;
+      transform: none !important;
+      border-radius: 12px;
+      scroll-snap-align: start;
+    }
+
+    .ci-chef { width: 200px; height: 150px; }
+    .ci-chef img { object-fit: cover !important; }
+    .ci-pastrami { width: 180px; height: 180px; }
+    .ci-salad { width: 170px; height: 170px; border-radius: 50% !important; }
+    .ci-kitchen { width: 220px; height: 155px; }
+    .ci-milkshake { width: 140px; height: 190px; }
+
+    .about-center { padding: 1.25rem 1.5rem; }
+    .about-title { font-size: 2rem !important; }
+    .about-bio { font-size: 0.6rem !important; line-height: 1.8; }
   }
 </style>
 </head>
