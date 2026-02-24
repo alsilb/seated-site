@@ -164,7 +164,7 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: -0.5rem;
     padding: 0 2%;
   }
 
@@ -173,7 +173,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 1.5rem;
-    margin-top: 0.75rem;
+    margin-top: -5rem;
     padding: 0 2%;
   }
 
@@ -196,11 +196,15 @@
   }
 
   .ci-chef {
-    width: clamp(120px, 15vw, 240px);
-    height: clamp(160px, 20vw, 320px);
+    width: clamp(160px, 20vw, 300px);
+    height: clamp(120px, 15vw, 220px);
     transform: rotate(-6deg);
   }
   .ci-chef:hover { transform: rotate(-2deg) scale(1.05); }
+  .ci-chef img {
+    object-fit: contain;
+    background: #1a3a1a;
+  }
 
   .ci-pastrami {
     width: clamp(150px, 17vw, 260px);
@@ -464,7 +468,7 @@
   <div class="side-tabs">
     <button class="side-tab" onclick="openForm(event)">Reserve</button>
     <button class="side-tab" onclick="document.querySelector('.about').scrollIntoView({behavior:'smooth'})">About</button>
-    <a class="side-tab" href="#">Instagram</a>
+    <a class="side-tab" href="https://www.instagram.com/omaspickles" target="_blank">Instagram</a>
   </div>
 
   <div class="hero-content">
@@ -487,8 +491,8 @@
 <section class="about" id="about">
   <!-- Scattered photos - top row -->
   <div class="about-images-top">
-    <div class="collage-img ci-chef"><img src="chef-portrait.png" alt="chef alex"></div>
     <div class="collage-img ci-pastrami"><img src="pastrami.png" alt="pastrami"></div>
+    <div class="collage-img ci-chef"><img src="chef-portrait.png" alt="chef alex"></div>
     <div class="collage-img ci-milkshake"><img src="milkshake.png" alt="milkshake"></div>
   </div>
 
