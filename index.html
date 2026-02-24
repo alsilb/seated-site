@@ -237,6 +237,32 @@
   }
   .ci-kitchen:hover { transform: rotate(0deg) scale(1.05); }
 
+  .ci-pasta {
+    width: clamp(140px, 16vw, 240px);
+    height: clamp(140px, 16vw, 240px);
+    transform: rotate(-4deg);
+    border-radius: 50%;
+  }
+  .ci-pasta:hover { transform: rotate(-1deg) scale(1.05); }
+
+  .ci-bread {
+    width: clamp(130px, 15vw, 230px);
+    height: clamp(130px, 15vw, 230px);
+    transform: rotate(6deg);
+  }
+  .ci-bread:hover { transform: rotate(3deg) scale(1.05); }
+
+  .ci-pickle {
+    width: clamp(140px, 16vw, 240px);
+    height: clamp(180px, 20vw, 300px);
+    transform: rotate(4deg);
+  }
+  .ci-pickle:hover { transform: rotate(1deg) scale(1.05); }
+  .ci-pickle video {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
   /* Center text */
   .about-center {
     position: relative;
@@ -461,6 +487,9 @@
     .ci-salad { width: 170px; height: 170px; border-radius: 50% !important; }
     .ci-kitchen { width: 220px; height: 155px; }
     .ci-milkshake { width: 140px; height: 190px; }
+    .ci-pasta { width: 170px; height: 170px; }
+    .ci-bread { width: 160px; height: 160px; }
+    .ci-pickle { width: 150px; height: 200px; }
 
     .about-center { padding: 1.25rem 1.5rem; }
     .about-title { font-size: 2rem !important; }
@@ -527,6 +556,7 @@
   <!-- Scattered photos - top row -->
   <div class="about-images-top">
     <div class="collage-img ci-pastrami"><img src="pastrami.png" alt="pastrami"></div>
+    <div class="collage-img ci-pickle"><video src="pickles.mov" autoplay muted loop playsinline></video></div>
     <div class="collage-img ci-chef"><img src="chef-portrait.png" alt="chef alex"></div>
     <div class="collage-img ci-milkshake"><img src="milkshake.png" alt="milkshake"></div>
   </div>
@@ -548,7 +578,9 @@
   <!-- Scattered photos - bottom row -->
   <div class="about-images-bottom">
     <div class="collage-img ci-salad"><img src="salad.png" alt="chopped salad"></div>
+    <div class="collage-img ci-bread"><img src="bread.png" alt="sourdough bread"></div>
     <div class="collage-img ci-kitchen"><img src="kitchen-action.png" alt="in the kitchen"></div>
+    <div class="collage-img ci-pasta"><img src="pasta.png" alt="fresh pasta"></div>
   </div>
 </section>
 
