@@ -107,9 +107,9 @@
   .title-line-2 {
     font-family: 'Instrument Serif', serif;
     font-weight: 400; font-style: italic;
-    font-size: 7vw; line-height: 1;
+    font-size: clamp(1.2rem, 3vw, 2rem); line-height: 1;
     color: var(--cream); letter-spacing: -0.02em;
-    margin-top: -0.05em;
+    margin-top: 0.5rem; text-align: center;
   }
 
   .desc-block { margin-bottom: 1rem; }
@@ -121,7 +121,7 @@
   }
   .desc-main {
     font-family: 'Instrument Serif', serif;
-    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
     color: var(--cream); opacity: 0.8;
     line-height: 1.55; max-width: 500px; margin: 0 auto;
   }
@@ -545,12 +545,12 @@
 
     /* Compact hero */
     .hero { min-height: 100vh; min-height: 100dvh; padding: 1rem 0; }
-    .title-line-1 { font-size: 17vw; letter-spacing: 0.2em; padding-left: 0.2em; }
-    .title-line-2 { font-size: 5.5vw; margin-top: 0.3rem; }
+    .title-line-1 { font-size: 19vw; letter-spacing: 0.2em; padding-left: 0.2em; }
+    .title-line-2 { font-size: 5vw; margin-top: 0.5rem; }
     .title-block { margin-bottom: 1.5rem; }
     .desc-block { margin-bottom: 1.5rem; }
-    .desc-main { font-size: 0.85rem; max-width: 70%; }
-    .bottom-text { font-size: 9.5vw; margin-top: 1.5rem; letter-spacing: 0.2em; padding-left: 0.2em; }
+    .desc-main { font-size: 1.1rem; max-width: 75%; }
+    .bottom-text { font-size: 10.5vw; margin-top: 1.5rem; letter-spacing: 0.2em; padding-left: 0.2em; }
 
     /* Show reserve button on mobile */
     .mobile-reserve { display: block !important; margin-top: 2rem; }
@@ -666,7 +666,6 @@
   <div class="hero-content">
     <div class="title-block">
       <div class="title-line-1">SEATED</div>
-      <div class="title-line-2">a culinary experience</div>
     </div>
     <div class="desc-block">
       <div class="desc-main">Seasonal &amp; local modern cuisine.<br>A private chef for your table.</div>
@@ -676,6 +675,7 @@
       <span class="side-label">Local</span>
     </div>
     <div class="bottom-text">LOS ANGELES</div>
+    <div class="title-line-2">a culinary experience</div>
     <button class="mobile-reserve" onclick="openForm(event)">Reserve Now</button>
   </div>
 </div>
