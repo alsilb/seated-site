@@ -522,37 +522,39 @@
     .form-card { padding: 1.75rem; }
 
     /* Compact hero */
-    .hero { min-height: 100vh; padding: 1rem 0; }
-    .title-line-1 { font-size: 18vw; }
-    .title-block { margin-bottom: 1rem; }
-    .desc-block { margin-bottom: 0.5rem; }
-    .bottom-text { font-size: clamp(1.8rem, 6vw, 4rem); margin-top: 0.25rem; }
+    .hero { min-height: 100vh; min-height: 100dvh; padding: 1rem 0; }
+    .title-line-1 { font-size: 17vw; letter-spacing: 0.2em; padding-left: 0.2em; }
+    .title-line-2 { font-size: 5.5vw; }
+    .title-block { margin-bottom: 0.75rem; }
+    .desc-block { margin-bottom: 0.25rem; }
+    .desc-main { font-size: 0.85rem; max-width: 70%; }
+    .bottom-text { font-size: clamp(1.6rem, 5vw, 3rem); margin-top: 0.5rem; letter-spacing: 0.2em; }
 
-    /* Center Seasonal & Local between the desc lines */
+    /* Center Seasonal & Local */
     .side-labels {
       justify-content: center;
-      gap: 2rem;
+      gap: 2.5rem;
       padding: 0;
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       margin-bottom: 0.25rem;
     }
     .side-label {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       opacity: 0.5;
     }
 
-    /* Pull food images much closer to center on mobile */
-    .s1 { top: 3%; left: 2%; width: 70px; }
-    .s2 { top: 3%; right: 8%; width: 60px; }
-    .s8 { top: 2%; left: 28%; width: 65px; }
-    .s12 { top: 2%; right: 25%; width: 55px; }
-    .s10 { top: 22%; left: 0%; width: 65px; }
-    .s4 { bottom: 6%; left: 1%; width: 70px; }
-    .s6 { top: 18%; right: 0%; width: 60px; }
-    .s3 { top: 40%; right: 0%; width: 70px; }
-    .s11 { bottom: 12%; right: 1%; width: 65px; }
-    .s5 { bottom: 1%; right: 15%; width: 80px; }
-    .s9 { bottom: 1%; left: 20%; width: 70px; }
+    /* Food images: pulled tight around the text, overlapping edges */
+    .s1 { top: 15%; left: 3%; width: 60px; }
+    .s2 { top: 14%; right: 5%; width: 55px; }
+    .s8 { top: 8%; left: 20%; width: 55px; }
+    .s12 { top: 8%; right: 18%; width: 50px; }
+    .s10 { top: 30%; left: 1%; width: 55px; }
+    .s4 { bottom: 18%; left: 3%; width: 60px; }
+    .s6 { top: 28%; right: 2%; width: 55px; }
+    .s3 { bottom: 30%; right: 1%; width: 60px; }
+    .s11 { bottom: 18%; right: 3%; width: 55px; }
+    .s5 { bottom: 8%; right: 12%; width: 65px; }
+    .s9 { bottom: 8%; left: 15%; width: 60px; }
 
     .about {
       padding: 1.5rem 0;
