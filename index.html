@@ -39,26 +39,41 @@
 
   .shape { position: absolute; pointer-events: none; z-index: 1; }
   .shape img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-  /* Top edge items */
-  .s1 { top: 1%; left: 4%; width: clamp(80px, 10vw, 140px); transform: rotate(-15deg); }
-  .s2 { top: 1%; right: 12%; width: clamp(70px, 9vw, 120px); transform: rotate(20deg); }
-  .s8 { top: 1%; left: 30%; width: clamp(80px, 9vw, 130px); transform: rotate(15deg); }
-  .s12 { top: 1%; right: 32%; width: clamp(65px, 8vw, 110px); transform: rotate(40deg); }
-  /* Left edge items */
-  .s10 { top: 28%; left: 1%; width: clamp(80px, 10vw, 140px); transform: rotate(20deg); }
-  .s4 { bottom: 2%; left: 2%; width: clamp(85px, 10vw, 140px); transform: rotate(12deg); }
-  /* Right edge items */
-  .s6 { top: 18%; right: 1%; width: clamp(75px, 9vw, 130px); transform: rotate(35deg); }
-  .s3 { top: 42%; right: 1%; width: clamp(90px, 11vw, 150px); transform: rotate(15deg); }
-  .s11 { bottom: 2%; right: 2%; width: clamp(85px, 10vw, 140px); transform: rotate(-15deg); }
-  /* Bottom edge items */
-  .s5 { bottom: -4%; right: 18%; width: clamp(100px, 12vw, 160px); transform: rotate(-18deg); }
-  .s9 { bottom: -4%; left: 25%; width: clamp(90px, 10vw, 140px); transform: rotate(-30deg); }
-  /* New items */
-  .s13 { bottom: -2%; left: 45%; width: clamp(80px, 9vw, 130px); transform: rotate(10deg); }
-  .s14 { top: 1%; left: 15%; width: clamp(65px, 8vw, 110px); transform: rotate(-20deg); }
-  .s15 { bottom: 2%; left: 8%; width: clamp(100px, 12vw, 170px); transform: rotate(5deg); }
-  .s16 { top: 1%; right: 5%; width: clamp(70px, 9vw, 120px); transform: rotate(15deg); }
+
+  /* ── TOP EDGE (5 items, evenly spaced) ── */
+  .s1  { top: -1%;  left: 2%;   width: clamp(75px, 9vw, 130px); transform: rotate(-8deg); }
+  .s14 { top: -1.5%; left: 22%;  width: clamp(65px, 8vw, 115px); transform: rotate(12deg); }
+  .s8  { top: -2%;  left: 43%;  width: clamp(75px, 9vw, 130px); transform: rotate(-5deg); }
+  .s12 { top: -1%;  right: 22%; width: clamp(65px, 8vw, 110px); transform: rotate(8deg); }
+  .s2  { top: -1.5%; right: 2%;  width: clamp(70px, 9vw, 125px); transform: rotate(-10deg); }
+
+  /* ── LEFT EDGE (4 items, evenly spaced top-to-bottom) ── */
+  .s10 { top: 14%;  left: -1%;  width: clamp(75px, 9vw, 130px); transform: rotate(15deg); }
+  .s17 { top: 35%;  left: -1.5%; width: clamp(65px, 8vw, 115px); transform: rotate(-10deg); }
+  .s4  { top: 56%;  left: -1%;  width: clamp(80px, 9vw, 135px); transform: rotate(8deg); }
+  .s15 { top: 77%;  left: -1%;  width: clamp(75px, 9vw, 130px); transform: rotate(-12deg); }
+
+  /* ── RIGHT EDGE (4 items, evenly spaced top-to-bottom) ── */
+  .s16 { top: 14%;  right: -1%;  width: clamp(70px, 8vw, 120px); transform: rotate(-12deg); }
+  .s6  { top: 35%;  right: -1.5%; width: clamp(70px, 9vw, 125px); transform: rotate(10deg); }
+  .s3  { top: 56%;  right: -1%;  width: clamp(80px, 10vw, 140px); transform: rotate(-8deg); }
+  .s19 { top: 77%;  right: -1%;  width: clamp(70px, 8vw, 120px); transform: rotate(14deg); }
+
+  /* ── BOTTOM EDGE (4 items, evenly spaced) ── */
+  .s9  { bottom: -2%;  left: 8%;   width: clamp(80px, 9vw, 135px); transform: rotate(10deg); }
+  .s13 { bottom: -2.5%; left: 33%;  width: clamp(70px, 8vw, 120px); transform: rotate(-8deg); }
+  .s5  { bottom: -2%;  right: 33%; width: clamp(85px, 10vw, 145px); transform: rotate(6deg); }
+  .s18 { bottom: -2%;  right: 8%;  width: clamp(75px, 9vw, 130px); transform: rotate(-10deg); }
+
+  /* ── BOTTOM CORNERS (anchoring the frame) ── */
+  .s11 { bottom: -1%;  right: 1%;  width: clamp(75px, 9vw, 125px); transform: rotate(-15deg); }
+  .s7  { bottom: -1%;  left: 1%;   width: clamp(75px, 9vw, 125px); transform: rotate(12deg); }
+
+  /* ── NEW ADDITIONS ── */
+  .s20 { top: -1%;   left: 55%;  width: clamp(80px, 10vw, 140px); transform: rotate(6deg); }     /* agnolotti - top edge gap */
+  .s21 { top: 46%;   left: -1.5%; width: clamp(70px, 8vw, 120px); transform: rotate(-6deg); }    /* fish-head - left edge gap */
+  .s22 { top: 46%;   right: -1.5%; width: clamp(70px, 8vw, 120px); transform: rotate(10deg); }   /* maldon - right edge gap */
+  .s23 { bottom: -3%; left: 55%;  width: clamp(100px, 14vw, 200px); transform: rotate(-4deg); }   /* salmon - bottom edge, wide */
 
   .badge {
     position: absolute;
@@ -563,28 +578,38 @@
     /* Food images: solid border frame around hero */
     .shape { animation: none !important; }
 
-    /* Top edge - 6 items */
-    .s1  { top: 0; left: 0; width: 70px; transform: rotate(-5deg); }
-    .s14 { top: 0; left: 17%; width: 60px; transform: rotate(12deg); }
-    .s8  { top: 0; left: 35%; width: 65px; transform: rotate(8deg); }
-    .s12 { top: 0; right: 35%; width: 60px; transform: rotate(-3deg); }
-    .s16 { top: 0; right: 17%; width: 60px; transform: rotate(10deg); }
-    .s2  { top: 0; right: 0; width: 70px; transform: rotate(-8deg); }
+    /* Top edge - 5 items */
+    .s1  { top: 0; left: 0; width: 65px; transform: rotate(-5deg); }
+    .s14 { top: 0; left: 22%; width: 55px; transform: rotate(10deg); }
+    .s8  { top: 0; left: 44%; width: 60px; transform: rotate(-4deg); }
+    .s12 { top: 0; right: 22%; width: 55px; transform: rotate(6deg); }
+    .s2  { top: 0; right: 0; width: 65px; transform: rotate(-8deg); }
 
-    /* Left edge - 3 items */
-    .s10 { top: 15%; left: 0; width: 60px; transform: rotate(12deg); }
-    .s4  { top: 38%; left: 0; width: 65px; transform: rotate(-10deg); }
-    .s15 { top: 60%; left: 0; width: 75px; transform: rotate(5deg); }
+    /* Left edge - 4 items */
+    .s10 { top: 16%; left: 0; width: 55px; transform: rotate(12deg); }
+    .s17 { top: 35%; left: 0; width: 50px; transform: rotate(-8deg); }
+    .s4  { top: 54%; left: 0; width: 55px; transform: rotate(6deg); }
+    .s15 { top: 73%; left: 0; width: 60px; transform: rotate(-10deg); }
 
-    /* Right edge - 3 items */
-    .s6  { top: 15%; right: 0; width: 60px; transform: rotate(-12deg); }
-    .s3  { top: 38%; right: 0; width: 65px; transform: rotate(8deg); }
-    .s11 { top: 60%; right: 0; width: 60px; transform: rotate(-8deg); }
+    /* Right edge - 4 items */
+    .s16 { top: 16%; right: 0; width: 55px; transform: rotate(-10deg); }
+    .s6  { top: 35%; right: 0; width: 55px; transform: rotate(8deg); }
+    .s3  { top: 54%; right: 0; width: 55px; transform: rotate(-6deg); }
+    .s19 { top: 73%; right: 0; width: 55px; transform: rotate(12deg); }
 
-    /* Bottom edge - 3 items */
-    .s9  { bottom: 0; left: 5%; width: 75px; transform: rotate(6deg); }
-    .s13 { bottom: 0; left: 50%; width: 70px; transform: rotate(-5deg) translateX(-50%); }
-    .s5  { bottom: 0; right: 5%; width: 75px; transform: rotate(-6deg); }
+    /* Bottom edge - 4 items + 2 corners */
+    .s7  { bottom: 0; left: 0; width: 60px; transform: rotate(8deg); }
+    .s9  { bottom: 0; left: 22%; width: 55px; transform: rotate(-6deg); }
+    .s13 { bottom: 0; left: 44%; width: 55px; transform: rotate(5deg); }
+    .s5  { bottom: 0; right: 22%; width: 60px; transform: rotate(-5deg); }
+    .s18 { bottom: 0; right: 22%; width: 55px; transform: rotate(8deg); }
+    .s11 { bottom: 0; right: 0; width: 60px; transform: rotate(-10deg); }
+
+    /* New additions - mobile */
+    .s20 { top: 0; left: 55%; width: 55px; transform: rotate(5deg); }
+    .s21 { top: 44%; left: 0; width: 50px; transform: rotate(-5deg); }
+    .s22 { top: 44%; right: 0; width: 50px; transform: rotate(8deg); }
+    .s23 { bottom: 0; left: 44%; width: 80px; transform: rotate(-3deg); }
 
     .about {
       padding: 1.5rem 0;
@@ -675,6 +700,7 @@
   <div class="shape s4"><img src="steak.png" alt=""></div>
   <div class="shape s5"><img src="dill.png" alt=""></div>
   <div class="shape s6"><img src="chili.png" alt=""></div>
+  <div class="shape s7"><img src="cucumber.png" alt=""></div>
   <div class="shape s8"><img src="tomato.png" alt=""></div>
   <div class="shape s9"><img src="cucumber.png" alt=""></div>
   <div class="shape s10"><img src="avocado.png" alt=""></div>
@@ -684,6 +710,13 @@
   <div class="shape s14"><img src="mint.png" alt=""></div>
   <div class="shape s15"><img src="salmonhead.png" alt=""></div>
   <div class="shape s16"><img src="lime.png" alt=""></div>
+  <div class="shape s17"><img src="chilicrisp.png" alt=""></div>
+  <div class="shape s18"><img src="maldon.png" alt=""></div>
+  <div class="shape s19"><img src="oldbay.png" alt=""></div>
+  <div class="shape s20"><img src="agnolotti.png" alt=""></div>
+  <div class="shape s21"><img src="fish-head.png" alt=""></div>
+  <div class="shape s22"><img src="maldon.png" alt=""></div>
+  <div class="shape s23"><img src="salmon.png" alt=""></div>
 
   <div class="hero-content">
     <div class="title-block">
