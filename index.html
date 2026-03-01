@@ -34,46 +34,78 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
+    padding: clamp(40px, 4vw, 65px) clamp(40px, 4vw, 65px);
   }
 
-  .shape { position: absolute; pointer-events: none; z-index: 1; }
+  .shape { position: absolute; pointer-events: none; z-index: 1; width: clamp(70px, 8vw, 120px); }
   .shape img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
 
-  /* ── TOP EDGE (5 items, evenly spaced) ── */
-  .s1  { top: -1%;  left: 2%;   width: clamp(75px, 9vw, 130px); transform: rotate(-8deg); }
-  .s14 { top: -1.5%; left: 22%;  width: clamp(65px, 8vw, 115px); transform: rotate(12deg); }
-  .s8  { top: -2%;  left: 43%;  width: clamp(75px, 9vw, 130px); transform: rotate(-5deg); }
-  .s12 { top: -1%;  right: 22%; width: clamp(65px, 8vw, 110px); transform: rotate(8deg); }
-  .s2  { top: -1.5%; right: 2%;  width: clamp(70px, 9vw, 125px); transform: rotate(-10deg); }
+  /* Hide old individual shapes — replaced by frame strips */
+  .shape[class*="s"] { display: none; }
 
-  /* ── LEFT EDGE (4 items, evenly spaced top-to-bottom) ── */
-  .s10 { top: 14%;  left: -1%;  width: clamp(75px, 9vw, 130px); transform: rotate(15deg); }
-  .s17 { top: 35%;  left: -1.5%; width: clamp(65px, 8vw, 115px); transform: rotate(-10deg); }
-  .s4  { top: 56%;  left: -1%;  width: clamp(80px, 9vw, 135px); transform: rotate(8deg); }
-  .s15 { top: 77%;  left: -1%;  width: clamp(75px, 9vw, 130px); transform: rotate(-12deg); }
+  /* ===== FRAME BORDER SYSTEM ===== */
+  .frame-edge {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+  .frame-edge .fi {
+    flex-shrink: 0;
+    width: clamp(35px, 3.5vw, 55px);
+    height: clamp(35px, 3.5vw, 55px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .frame-edge .fi img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+  }
 
-  /* ── RIGHT EDGE (4 items, evenly spaced top-to-bottom) ── */
-  .s16 { top: 14%;  right: -1%;  width: clamp(70px, 8vw, 120px); transform: rotate(-12deg); }
-  .s6  { top: 35%;  right: -1.5%; width: clamp(70px, 9vw, 125px); transform: rotate(10deg); }
-  .s3  { top: 56%;  right: -1%;  width: clamp(80px, 10vw, 140px); transform: rotate(-8deg); }
-  .s19 { top: 77%;  right: -1%;  width: clamp(70px, 8vw, 120px); transform: rotate(14deg); }
+  /* Top edge */
+  .frame-top {
+    top: 0; left: 0; right: 0;
+    height: clamp(35px, 3.5vw, 55px);
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0 clamp(30px, 3vw, 50px);
+  }
+  /* Bottom edge */
+  .frame-bottom {
+    bottom: 0; left: 0; right: 0;
+    height: clamp(35px, 3.5vw, 55px);
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0 clamp(30px, 3vw, 50px);
+  }
+  /* Left edge */
+  .frame-left {
+    top: 0; bottom: 0; left: 0;
+    width: clamp(35px, 3.5vw, 55px);
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: clamp(30px, 3vw, 50px) 0;
+  }
+  /* Right edge */
+  .frame-right {
+    top: 0; bottom: 0; right: 5px;
+    width: clamp(35px, 3.5vw, 55px);
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: clamp(30px, 3vw, 50px) 0;
+  }
 
-  /* ── BOTTOM EDGE (4 items, evenly spaced) ── */
-  .s9  { bottom: -2%;  left: 8%;   width: clamp(80px, 9vw, 135px); transform: rotate(10deg); }
-  .s13 { bottom: -2.5%; left: 33%;  width: clamp(70px, 8vw, 120px); transform: rotate(-8deg); }
-  .s5  { bottom: -2%;  right: 33%; width: clamp(85px, 10vw, 145px); transform: rotate(6deg); }
-  .s18 { bottom: -2%;  right: 8%;  width: clamp(75px, 9vw, 130px); transform: rotate(-10deg); }
-
-  /* ── BOTTOM CORNERS (anchoring the frame) ── */
-  .s11 { bottom: -1%;  right: 1%;  width: clamp(75px, 9vw, 125px); transform: rotate(-15deg); }
-  .s7  { bottom: -1%;  left: 1%;   width: clamp(75px, 9vw, 125px); transform: rotate(12deg); }
-
-  /* ── NEW ADDITIONS ── */
-  .s20 { top: -1%;   left: 55%;  width: clamp(80px, 10vw, 140px); transform: rotate(6deg); }     /* agnolotti - top edge gap */
-  .s21 { top: 46%;   left: -1.5%; width: clamp(70px, 8vw, 120px); transform: rotate(-6deg); }    /* fish-head - left edge gap */
-  .s22 { top: 46%;   right: -1.5%; width: clamp(70px, 8vw, 120px); transform: rotate(10deg); }   /* maldon - right edge gap */
-  .s23 { bottom: -3%; left: 55%;  width: clamp(100px, 14vw, 200px); transform: rotate(-4deg); }   /* salmon - bottom edge, wide */
+  /* Subtle rotations for organic feel */
+  .fi:nth-child(odd)  { transform: rotate(-6deg); }
+  .fi:nth-child(even) { transform: rotate(5deg); }
+  .fi:nth-child(3n)   { transform: rotate(-10deg); }
+  .fi:nth-child(4n)   { transform: rotate(8deg); }
+  .fi:nth-child(5n)   { transform: rotate(-3deg); }
+  .fi:nth-child(7n)   { transform: rotate(12deg); }
 
   .badge {
     position: absolute;
@@ -86,11 +118,7 @@
   .badge svg { width: 100%; height: 100%; animation: spinBadge 12s linear infinite; }
 
   .side-tabs {
-    position: fixed; right: 0; top: 50%;
-    transform: translateY(-50%);
-    display: flex; flex-direction: column; gap: 2px;
-    z-index: 100;
-    opacity: 0; animation: tabsIn 0.5s ease 0.7s forwards;
+    display: none;
   }
 
   .side-tab {
@@ -110,10 +138,13 @@
   .hero-content {
     position: relative; z-index: 5;
     text-align: center; width: 100%;
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center;
     opacity: 0; animation: textIn 0.8s ease 0.2s forwards;
   }
 
-  .title-block { margin-bottom: 2rem; width: 100%; }
+  .title-block { width: 100%; }
 
   .title-line-1 {
     font-family: 'Instrument Serif', serif;
@@ -128,11 +159,12 @@
     font-family: 'Instrument Serif', serif;
     font-weight: 400; font-style: italic;
     font-size: clamp(1.2rem, 3vw, 2rem); line-height: 1;
-    color: var(--cream); letter-spacing: -0.02em;
+    color: var(--cream); letter-spacing: 0.35em;
     margin-top: 0.5rem; text-align: center;
+    padding-left: 0.35em;
   }
 
-  .desc-block { margin-bottom: 1rem; }
+  .desc-block { margin: auto 0; padding: 2rem 0; display: flex; align-items: center; justify-content: center; }
   .desc-top {
     font-family: 'Instrument Serif', serif;
     font-size: clamp(0.9rem, 1.8vw, 1.15rem);
@@ -140,16 +172,18 @@
     letter-spacing: 0.03em; margin-bottom: 0.5rem;
   }
   .desc-main {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-    color: var(--cream); opacity: 0.8;
-    line-height: 1.55; max-width: 500px; margin: 0 auto;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(0.6rem, 1vw, 0.8rem);
+    font-weight: 700;
+    color: var(--cream); opacity: 0.6;
+    line-height: 1.8; max-width: none; margin: 0 auto;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
   }
 
   .side-labels {
-    display: flex; justify-content: space-between;
-    align-items: center; padding: 0 5%;
-    margin-bottom: 0.5rem; margin-top: 2.5rem;
+    display: none;
   }
   .side-label {
     font-family: 'Bricolage Grotesque', sans-serif;
@@ -159,7 +193,7 @@
   }
 
   .mobile-reserve {
-    display: none;
+    display: block;
     margin: 1.5rem auto 0;
     padding: 0.85rem 2.5rem;
     background: var(--cream);
@@ -180,10 +214,11 @@
 
   .bottom-text {
     font-family: 'Instrument Serif', serif;
-    font-weight: 400; font-size: clamp(2.5rem, 8vw, 8rem);
+    font-weight: 400; font-size: clamp(3rem, 10vw, 9rem);
     line-height: 0.82; color: var(--cream);
-    letter-spacing: 0.25em; text-transform: uppercase;
-    text-align: center; margin-top: 0.5rem;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    text-align: center; padding-left: 0.3em;
+    white-space: nowrap;
   }
   .meet-alex {
     width: 100%;
@@ -388,11 +423,12 @@
   .about-title {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
-    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
     line-height: 0.9;
     color: var(--cream);
-    letter-spacing: -0.03em;
+    letter-spacing: 0.015em;
     margin-bottom: 1.5rem;
+    width: 100%;
     white-space: nowrap;
   }
 
@@ -409,7 +445,7 @@
     line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    text-align: center;
+    text-align: left;
   }
 
   .about-divider {
@@ -564,52 +600,30 @@
     .side-labels { display: none !important; }
 
     /* Compact hero */
-    .hero { min-height: 100vh; min-height: 100dvh; padding: 1rem 0; }
+    .hero { min-height: 100vh; min-height: 100dvh; padding: 35px 35px; }
     .title-line-1 { font-size: 19vw; letter-spacing: 0.2em; padding-left: 0.2em; }
     .title-line-2 { font-size: 5vw; margin-top: 0.5rem; }
     .title-block { margin-bottom: 1.5rem; }
     .desc-block { margin-bottom: 1.5rem; }
     .desc-main { font-size: 1.1rem; max-width: 75%; }
-    .bottom-text { font-size: 10.5vw; margin-top: 1.5rem; letter-spacing: 0.2em; padding-left: 0.2em; }
+    .bottom-text { font-size: 12vw; letter-spacing: 0.25em; padding-left: 0.25em; }
 
     /* Show reserve button on mobile */
-    .mobile-reserve { display: block !important; margin-top: 2rem; }
+    .mobile-reserve { margin-top: 2rem; }
 
-    /* Food images: solid border frame around hero */
-    .shape { animation: none !important; }
-
-    /* Top edge - 5 items */
-    .s1  { top: 0; left: 0; width: 65px; transform: rotate(-5deg); }
-    .s14 { top: 0; left: 22%; width: 55px; transform: rotate(10deg); }
-    .s8  { top: 0; left: 44%; width: 60px; transform: rotate(-4deg); }
-    .s12 { top: 0; right: 22%; width: 55px; transform: rotate(6deg); }
-    .s2  { top: 0; right: 0; width: 65px; transform: rotate(-8deg); }
-
-    /* Left edge - 4 items */
-    .s10 { top: 16%; left: 0; width: 55px; transform: rotate(12deg); }
-    .s17 { top: 35%; left: 0; width: 50px; transform: rotate(-8deg); }
-    .s4  { top: 54%; left: 0; width: 55px; transform: rotate(6deg); }
-    .s15 { top: 73%; left: 0; width: 60px; transform: rotate(-10deg); }
-
-    /* Right edge - 4 items */
-    .s16 { top: 16%; right: 0; width: 55px; transform: rotate(-10deg); }
-    .s6  { top: 35%; right: 0; width: 55px; transform: rotate(8deg); }
-    .s3  { top: 54%; right: 0; width: 55px; transform: rotate(-6deg); }
-    .s19 { top: 73%; right: 0; width: 55px; transform: rotate(12deg); }
-
-    /* Bottom edge - 4 items + 2 corners */
-    .s7  { bottom: 0; left: 0; width: 60px; transform: rotate(8deg); }
-    .s9  { bottom: 0; left: 22%; width: 55px; transform: rotate(-6deg); }
-    .s13 { bottom: 0; left: 44%; width: 55px; transform: rotate(5deg); }
-    .s5  { bottom: 0; right: 22%; width: 60px; transform: rotate(-5deg); }
-    .s18 { bottom: 0; right: 22%; width: 55px; transform: rotate(8deg); }
-    .s11 { bottom: 0; right: 0; width: 60px; transform: rotate(-10deg); }
-
-    /* New additions - mobile */
-    .s20 { top: 0; left: 55%; width: 55px; transform: rotate(5deg); }
-    .s21 { top: 44%; left: 0; width: 50px; transform: rotate(-5deg); }
-    .s22 { top: 44%; right: 0; width: 50px; transform: rotate(8deg); }
-    .s23 { bottom: 0; left: 44%; width: 80px; transform: rotate(-3deg); }
+    /* Food frame: smaller on mobile */
+    .frame-edge .fi {
+      width: 28px !important;
+      height: 28px !important;
+    }
+    .frame-top, .frame-bottom {
+      height: 28px !important;
+      padding: 0 24px !important;
+    }
+    .frame-left, .frame-right {
+      width: 28px !important;
+      padding: 24px 0 !important;
+    }
 
     .about {
       padding: 1.5rem 0;
@@ -694,29 +708,54 @@
 
 <!-- ===== HERO ===== -->
 <div class="hero">
-  <div class="shape s1"><img src="onion.png" alt=""></div>
-  <div class="shape s2"><img src="garlic.png" alt=""></div>
-  <div class="shape s3"><img src="cilantro.png" alt=""></div>
-  <div class="shape s4"><img src="steak.png" alt=""></div>
-  <div class="shape s5"><img src="dill.png" alt=""></div>
-  <div class="shape s6"><img src="chili.png" alt=""></div>
-  <div class="shape s7"><img src="cucumber.png" alt=""></div>
-  <div class="shape s8"><img src="tomato.png" alt=""></div>
-  <div class="shape s9"><img src="cucumber.png" alt=""></div>
-  <div class="shape s10"><img src="avocado.png" alt=""></div>
-  <div class="shape s11"><img src="lemon.png" alt=""></div>
-  <div class="shape s12"><img src="wheat.png" alt=""></div>
-  <div class="shape s13"><img src="olives.png" alt=""></div>
-  <div class="shape s14"><img src="mint.png" alt=""></div>
-  <div class="shape s15"><img src="salmonhead.png" alt=""></div>
-  <div class="shape s16"><img src="lime.png" alt=""></div>
-  <div class="shape s17"><img src="chilicrisp.png" alt=""></div>
-  <div class="shape s18"><img src="maldon.png" alt=""></div>
-  <div class="shape s19"><img src="oldbay.png" alt=""></div>
-  <div class="shape s20"><img src="agnolotti.png" alt=""></div>
-  <div class="shape s21"><img src="fish-head.png" alt=""></div>
-  <div class="shape s22"><img src="maldon.png" alt=""></div>
-  <div class="shape s23"><img src="salmon.png" alt=""></div>
+  <!-- ===== FRAME BORDER ===== -->
+  <div class="frame-edge frame-top">
+    <div class="fi"><img src="onion.png" alt=""></div>
+    <div class="fi"><img src="chili.png" alt=""></div>
+    <div class="fi"><img src="mint.png" alt=""></div>
+    <div class="fi"><img src="garlic.png" alt=""></div>
+    <div class="fi"><img src="tomato.png" alt=""></div>
+    <div class="fi"><img src="agnolotti.png" alt=""></div>
+    <div class="fi"><img src="lime.png" alt=""></div>
+    <div class="fi"><img src="wheat.png" alt=""></div>
+    <div class="fi"><img src="oldbay.png" alt=""></div>
+    <div class="fi"><img src="avocado.png" alt=""></div>
+  </div>
+
+  <div class="frame-edge frame-bottom">
+    <div class="fi"><img src="lemon.png" alt=""></div>
+    <div class="fi"><img src="steak.png" alt=""></div>
+    <div class="fi"><img src="salmon.png" alt=""></div>
+    <div class="fi"><img src="chilicrisp.png" alt=""></div>
+    <div class="fi"><img src="olives.png" alt=""></div>
+    <div class="fi"><img src="fish-head.png" alt=""></div>
+    <div class="fi"><img src="dill.png" alt=""></div>
+    <div class="fi"><img src="maldon.png" alt=""></div>
+    <div class="fi"><img src="cucumber.png" alt=""></div>
+    <div class="fi"><img src="cilantro.png" alt=""></div>
+  </div>
+
+  <div class="frame-edge frame-left">
+    <div class="fi"><img src="avocado.png" alt=""></div>
+    <div class="fi"><img src="wheat.png" alt=""></div>
+    <div class="fi"><img src="fish-head.png" alt=""></div>
+    <div class="fi"><img src="steak.png" alt=""></div>
+    <div class="fi"><img src="cilantro.png" alt=""></div>
+    <div class="fi"><img src="maldon.png" alt=""></div>
+    <div class="fi"><img src="agnolotti.png" alt=""></div>
+    <div class="fi"><img src="lemon.png" alt=""></div>
+  </div>
+
+  <div class="frame-edge frame-right">
+    <div class="fi"><img src="oldbay.png" alt=""></div>
+    <div class="fi"><img src="lime.png" alt=""></div>
+    <div class="fi"><img src="chili.png" alt=""></div>
+    <div class="fi"><img src="cucumber.png" alt=""></div>
+    <div class="fi"><img src="dill.png" alt=""></div>
+    <div class="fi"><img src="salmon.png" alt=""></div>
+    <div class="fi"><img src="tomato.png" alt=""></div>
+    <div class="fi"><img src="chilicrisp.png" alt=""></div>
+  </div>
 
   <div class="hero-content">
     <div class="title-block">
@@ -743,7 +782,7 @@
   <div class="meet-alex-text">
     <div class="about-title">Meet <em>Alex Silberberg</em></div>
     <p class="about-bio">
-      Alex Silberberg has extensive experience working in restaurants across Los Angeles. He started working the front of house with traditional wine, receiving his sommelier certificate while working at The Stonehaus. He then transitioned to working with natural wine at Here's Looking At You &amp; Dudley Market. Currently, he works as a private chef based in Malibu. He also pops up around LA with his concept "Oma's" — a modern Jewish Deli. He believes in making things in their purest form, using freshly milled ancient grains and natural fermentation in his pickling and sourdough baking. Alex draws inspiration from the environment around him, frequenting farmer's markets and his own garden for his ingredients.
+      Alex has extensive experience working in restaurants across Los Angeles. He started working the front of house with traditional wine, receiving his sommelier certificate while working at The Stonehaus. He then transitioned to working with natural wine at Here's Looking At You &amp; Dudley Market. Currently, he works as a private chef based in Malibu. He also pops up around LA with his concept "Oma's" — a modern Jewish Deli. He believes in making things in their purest form, using freshly milled ancient grains and natural fermentation in his pickling and sourdough baking. Alex draws inspiration from the environment around him, frequenting farmer's markets and his own garden for his ingredients.
     </p>
     <div class="about-divider"></div>
     <div class="about-fav-label">Favorite LA Restaurants →</div>
