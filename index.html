@@ -870,16 +870,16 @@
     </div>
     <form class="form-grid" onsubmit="handleSubmit(event)">
       <div class="form-row">
-        <div class="form-group"><label>your name</label><input type="text" placeholder="first & last" required></div>
-        <div class="form-group"><label>email</label><input type="email" placeholder="hello@you.com" required></div>
+        <div class="form-group"><label>your name</label><input type="text" name="name" placeholder="first & last" required></div>
+        <div class="form-group"><label>email</label><input type="email" name="email" placeholder="hello@you.com" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>phone</label><input type="tel" placeholder="(310) 555-0000"></div>
-        <div class="form-group"><label>how many guests?</label><input type="number" placeholder="2" min="1" max="50"></div>
+        <div class="form-group"><label>phone</label><input type="tel" name="phone" placeholder="(310) 555-0000"></div>
+        <div class="form-group"><label>how many guests?</label><input type="number" name="guests" placeholder="2" min="1" max="50"></div>
       </div>
       <div class="form-group">
         <label>type of request</label>
-        <select required>
+        <select name="request_type" required>
           <option value="" disabled selected>pick one...</option>
           <option>family style</option>
           <option>buffet</option>
@@ -890,10 +890,10 @@
         </select>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>preferred date</label><input type="date"></div>
+        <div class="form-group"><label>preferred date</label><input type="date" name="date"></div>
         <div class="form-group">
           <label>preferred time</label>
-          <select>
+          <select name="time">
             <option value="" disabled selected>pick a time...</option>
             <option>breakfast (8am – 11am)</option>
             <option>lunch (11am – 2pm)</option>
@@ -907,25 +907,25 @@
       <div class="checkbox-group">
         <span class="group-label">dietary restrictions / allergies</span>
         <div class="checkbox-options">
-          <input type="checkbox" id="veg"><label for="veg">vegetarian</label>
-          <input type="checkbox" id="vgn"><label for="vgn">vegan</label>
-          <input type="checkbox" id="gf"><label for="gf">gluten-free</label>
-          <input type="checkbox" id="df"><label for="df">dairy-free</label>
-          <input type="checkbox" id="nut"><label for="nut">nut allergy</label>
-          <input type="checkbox" id="shell"><label for="shell">shellfish</label>
-          <input type="checkbox" id="kosh"><label for="kosh">kosher</label>
-          <input type="checkbox" id="oth"><label for="oth">other</label>
+          <input type="checkbox" id="veg" name="dietary" value="vegetarian"><label for="veg">vegetarian</label>
+          <input type="checkbox" id="vgn" name="dietary" value="vegan"><label for="vgn">vegan</label>
+          <input type="checkbox" id="gf" name="dietary" value="gluten-free"><label for="gf">gluten-free</label>
+          <input type="checkbox" id="df" name="dietary" value="dairy-free"><label for="df">dairy-free</label>
+          <input type="checkbox" id="nut" name="dietary" value="nut allergy"><label for="nut">nut allergy</label>
+          <input type="checkbox" id="shell" name="dietary" value="shellfish"><label for="shell">shellfish</label>
+          <input type="checkbox" id="kosh" name="dietary" value="kosher"><label for="kosh">kosher</label>
+          <input type="checkbox" id="oth" name="dietary" value="other"><label for="oth">other</label>
         </div>
       </div>
       <div class="checkbox-group">
         <span class="group-label">wine pairing</span>
         <div class="checkbox-options">
-          <input type="checkbox" id="wine-yes"><label for="wine-yes">yes, please!</label>
-          <input type="checkbox" id="wine-no"><label for="wine-no">no thanks</label>
-          <input type="checkbox" id="wine-maybe"><label for="wine-maybe">let's discuss</label>
+          <input type="checkbox" id="wine-yes" name="wine" value="yes please"><label for="wine-yes">yes, please!</label>
+          <input type="checkbox" id="wine-no" name="wine" value="no thanks"><label for="wine-no">no thanks</label>
+          <input type="checkbox" id="wine-maybe" name="wine" value="lets discuss"><label for="wine-maybe">let's discuss</label>
         </div>
       </div>
-      <div class="form-group"><label>tell us more</label><textarea placeholder="the occasion, flavor preferences, anything else..."></textarea></div>
+      <div class="form-group"><label>tell us more</label><textarea name="message" placeholder="the occasion, flavor preferences, anything else..."></textarea></div>
       <button type="submit" class="submit-btn" id="submitBtn">send it →</button>
     </form>
   </div>
@@ -945,9 +945,29 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
-    btn.textContent = "thank you! we'll be in touch ✿";
-    btn.classList.add('sent');
+    const form = e.target;
+    btn.textContent = "sending...";
     btn.disabled = true;
+
+    const formData = new FormData(form);
+
+    fetch('https://formspree.io/f/xjgeqwwa', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        btn.textContent = "thank you! we'll be in touch ✿";
+        btn.classList.add('sent');
+        form.reset();
+      } else {
+        btn.textContent = "oops, try again →";
+        btn.disabled = false;
+      }
+    }).catch(() => {
+      btn.textContent = "oops, try again →";
+      btn.disabled = false;
+    });
   }
 
   // Scroll reveal for about section
