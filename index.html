@@ -951,6 +951,7 @@
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
     const form = e.target;
+    const card = document.querySelector('.form-card');
     btn.textContent = "sending...";
     btn.disabled = true;
 
@@ -962,9 +963,13 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        btn.textContent = "thank you! we'll be in touch ✿";
-        btn.classList.add('sent');
-        form.reset();
+        card.innerHTML = `
+          <button class="form-close" onclick="closeForm(event)">✕</button>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;text-align:center;padding:2rem;">
+            <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:2.2rem;color:var(--green);margin-bottom:1rem;">Thank You!</h2>
+            <p style="font-family:'Bricolage Grotesque',sans-serif;font-size:0.85rem;color:rgba(26,26,22,0.6);line-height:1.8;max-width:400px;">We will be in touch with you soon to make your experience happen.</p>
+          </div>
+        `;
       } else {
         btn.textContent = "oops, try again →";
         btn.disabled = false;
