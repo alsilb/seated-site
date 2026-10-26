@@ -3,24 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>seated</title>
-
-<!-- Open Graph / Link Preview -->
-<meta property="og:title" content="Seated — A Culinary Experience">
-<meta property="og:description" content="Seasonal & local modern cuisine. A private chef for your table. Los Angeles.">
-<meta property="og:image" content="og-image.png">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Seated — A Culinary Experience">
-<meta name="twitter:description" content="Seasonal & local modern cuisine. A private chef for your table. Los Angeles.">
-<meta name="twitter:image" content="og-image.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/zsa3wii.css">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -50,79 +35,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: clamp(55px, 5.5vw, 80px) clamp(55px, 5.5vw, 80px);
+    padding: 2rem 0;
   }
 
-  .shape { position: absolute; pointer-events: none; z-index: 1; width: clamp(70px, 8vw, 120px); }
+  .shape { position: absolute; pointer-events: none; z-index: 1; }
   .shape img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-
-  /* Hide old individual shapes — replaced by frame strips */
-  .shape[class*="s"] { display: none; }
-
-  /* ===== FRAME BORDER SYSTEM ===== */
-  .frame-edge {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-  }
-  .frame-edge .fi {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .frame-edge .fi img {
-    width: clamp(35px, 3.5vw, 55px);
-    height: clamp(35px, 3.5vw, 55px);
-    object-fit: contain;
-    object-position: center;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
-    /* Force uniform bounding box */
-    min-width: clamp(35px, 3.5vw, 55px);
-    max-width: clamp(35px, 3.5vw, 55px);
-    min-height: clamp(35px, 3.5vw, 55px);
-    max-height: clamp(35px, 3.5vw, 55px);
-  }
-
-  /* Top & bottom span full width */
-  .frame-top {
-    top: 0; left: 0; right: 0;
-    height: clamp(45px, 4.5vw, 70px);
-    flex-direction: row;
-  }
-  .frame-bottom {
-    bottom: 0; left: 0; right: 0;
-    height: clamp(45px, 4.5vw, 70px);
-    flex-direction: row;
-  }
-  /* Left & right sit between top and bottom */
-  .frame-left {
-    top: clamp(45px, 4.5vw, 70px);
-    bottom: clamp(45px, 4.5vw, 70px);
-    left: 0;
-    width: clamp(45px, 4.5vw, 70px);
-    flex-direction: column;
-  }
-  .frame-right {
-    top: clamp(45px, 4.5vw, 70px);
-    bottom: clamp(45px, 4.5vw, 70px);
-    right: 0;
-    width: clamp(45px, 4.5vw, 70px);
-    flex-direction: column;
-  }
-
-  /* Subtle rotations for organic feel */
-  .fi:nth-child(odd)  { transform: rotate(-6deg); }
-  .fi:nth-child(even) { transform: rotate(5deg); }
-  .fi:nth-child(3n)   { transform: rotate(-10deg); }
-  .fi:nth-child(4n)   { transform: rotate(8deg); }
-  .fi:nth-child(5n)   { transform: rotate(-3deg); }
-  .fi:nth-child(7n)   { transform: rotate(12deg); }
-
-  /* Mobile frames hidden on desktop */
-  .frame-top-m, .frame-bottom-m, .frame-left-m, .frame-right-m { display: none; }
+  /* Top edge items */
+  .s1 { top: 1%; left: 4%; width: clamp(80px, 10vw, 140px); transform: rotate(-15deg); }
+  .s2 { top: 1%; right: 12%; width: clamp(70px, 9vw, 120px); transform: rotate(20deg); }
+  .s8 { top: 1%; left: 30%; width: clamp(80px, 9vw, 130px); transform: rotate(15deg); }
+  .s12 { top: 1%; right: 32%; width: clamp(65px, 8vw, 110px); transform: rotate(40deg); }
+  /* Left edge items */
+  .s10 { top: 28%; left: 1%; width: clamp(80px, 10vw, 140px); transform: rotate(20deg); }
+  .s4 { bottom: 2%; left: 2%; width: clamp(85px, 10vw, 140px); transform: rotate(12deg); }
+  /* Right edge items */
+  .s6 { top: 18%; right: 1%; width: clamp(75px, 9vw, 130px); transform: rotate(35deg); }
+  .s3 { top: 42%; right: 1%; width: clamp(90px, 11vw, 150px); transform: rotate(15deg); }
+  .s11 { bottom: 2%; right: 2%; width: clamp(85px, 10vw, 140px); transform: rotate(-15deg); }
+  /* Bottom edge items */
+  .s5 { bottom: -4%; right: 18%; width: clamp(100px, 12vw, 160px); transform: rotate(-18deg); }
+  .s9 { bottom: -4%; left: 25%; width: clamp(90px, 10vw, 140px); transform: rotate(-30deg); }
+  /* New items */
+  .s13 { bottom: -2%; left: 45%; width: clamp(80px, 9vw, 130px); transform: rotate(10deg); }
+  .s14 { top: 1%; left: 15%; width: clamp(65px, 8vw, 110px); transform: rotate(-20deg); }
+  .s15 { bottom: 2%; left: 8%; width: clamp(100px, 12vw, 170px); transform: rotate(5deg); }
+  .s16 { top: 1%; right: 5%; width: clamp(70px, 9vw, 120px); transform: rotate(15deg); }
+  .s17 { top: 20%; left: 1%; width: clamp(70px, 8vw, 110px); transform: rotate(-8deg); }
+  .s18 { bottom: -2%; right: 8%; width: clamp(75px, 9vw, 130px); transform: rotate(12deg); }
+  .s19 { top: 15%; right: 1%; width: clamp(75px, 9vw, 130px); transform: rotate(-5deg); }
 
   .badge {
     position: absolute;
@@ -135,7 +75,11 @@
   .badge svg { width: 100%; height: 100%; animation: spinBadge 12s linear infinite; }
 
   .side-tabs {
-    display: none;
+    position: fixed; right: 0; top: 50%;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 2px;
+    z-index: 100;
+    opacity: 0; animation: tabsIn 0.5s ease 0.7s forwards;
   }
 
   .side-tab {
@@ -155,33 +99,34 @@
   .hero-content {
     position: relative; z-index: 5;
     text-align: center; width: 100%;
-    height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center;
     opacity: 0; animation: textIn 0.8s ease 0.2s forwards;
   }
 
-  .title-block { width: 100%; }
+  .title-block { margin-bottom: 2rem; width: 100%; }
 
   .title-line-1 {
-    font-family: 'Instrument Serif', serif;
+    font-family: alphabet-soup, sans-serif;
     font-weight: 400; font-size: 15vw;
     line-height: 0.82; color: var(--cream);
     letter-spacing: 0.25em; text-transform: uppercase;
     white-space: nowrap; text-align: center;
-    padding-left: 0.25em; padding-left: 0.25em;
+    padding-left: 0.25em;
   }
+  .title-line-1 span {
+    display: inline-block;
+  }
+  .title-line-1 span:nth-child(odd) { transform: rotate(5deg); }
+  .title-line-1 span:nth-child(even) { transform: rotate(-5deg); }
 
   .title-line-2 {
     font-family: 'Instrument Serif', serif;
     font-weight: 400; font-style: italic;
     font-size: clamp(1.2rem, 3vw, 2rem); line-height: 1;
-    color: var(--cream); letter-spacing: 0.35em;
+    color: var(--cream); letter-spacing: -0.02em;
     margin-top: 0.5rem; text-align: center;
-    padding-left: 0.35em;
   }
 
-  .desc-block { margin: auto 0; padding: 2rem 0; display: flex; align-items: center; justify-content: center; }
+  .desc-block { margin-bottom: 1rem; }
   .desc-top {
     font-family: 'Instrument Serif', serif;
     font-size: clamp(0.9rem, 1.8vw, 1.15rem);
@@ -189,18 +134,16 @@
     letter-spacing: 0.03em; margin-bottom: 0.5rem;
   }
   .desc-main {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: clamp(0.6rem, 1vw, 0.8rem);
-    font-weight: 700;
-    color: var(--cream); opacity: 0.6;
-    line-height: 1.8; max-width: none; margin: 0 auto;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    color: var(--cream); opacity: 0.8;
+    line-height: 1.55; max-width: 500px; margin: 0 auto;
   }
 
   .side-labels {
-    display: none;
+    display: flex; justify-content: space-between;
+    align-items: center; padding: 0 5%;
+    margin-bottom: 0.5rem; margin-top: 2.5rem;
   }
   .side-label {
     font-family: 'Bricolage Grotesque', sans-serif;
@@ -210,7 +153,7 @@
   }
 
   .mobile-reserve {
-    display: block;
+    display: none;
     margin: 1.5rem auto 0;
     padding: 0.85rem 2.5rem;
     background: var(--cream);
@@ -230,12 +173,11 @@
   .mobile-reserve:hover { background: var(--lime); color: var(--cream); }
 
   .bottom-text {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400; font-size: clamp(3rem, 10vw, 9rem);
+    font-family: alphabet-soup, sans-serif;
+    font-weight: 400; font-size: clamp(2.5rem, 8vw, 8rem);
     line-height: 0.82; color: var(--cream);
-    letter-spacing: 0.3em; text-transform: uppercase;
-    text-align: center; padding-left: 0.3em;
-    white-space: nowrap;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    text-align: center; margin-top: 0.5rem;
   }
   .meet-alex {
     width: 100%;
@@ -306,7 +248,8 @@
     object-fit: cover;
     display: block;
   }
-  /* all gallery items are square */
+  .gi-2 { aspect-ratio: 3/4; }
+  .gi-6 { aspect-ratio: 3/4; }
 
   /* ===== ABOUT SECTION (Paper Archive style) ===== */
   .about {
@@ -439,12 +382,11 @@
   .about-title {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 4.5rem);
     line-height: 0.9;
     color: var(--cream);
-    letter-spacing: 0.015em;
+    letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
-    width: 100%;
     white-space: nowrap;
   }
 
@@ -461,7 +403,7 @@
     line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    text-align: left;
+    text-align: center;
   }
 
   .about-divider {
@@ -615,44 +557,46 @@
     .side-tabs { display: none !important; }
     .side-labels { display: none !important; }
 
-    /* Compact hero - padding must exceed frame width to prevent text overlap */
-    .hero { min-height: 100vh; min-height: 100dvh; padding: 55px 55px; }
-    .title-line-1 { font-size: 17vw; letter-spacing: 0.2em; padding-left: 0.2em; }
-    .title-line-2 { font-size: 4.5vw; margin-top: 0.5rem; letter-spacing: 0.25em; padding-left: 0.25em; }
-    .title-block { margin-bottom: 0; }
-    .desc-block { margin: auto 0; padding: 1.5rem 0; }
-    .desc-main { font-size: 0.55rem; max-width: none; }
-    .bottom-text { font-size: 10vw; letter-spacing: 0.25em; padding-left: 0.25em; }
+    /* Compact hero */
+    .hero { min-height: 100vh; min-height: 100dvh; padding: 1rem 0; }
+    .title-line-1 { font-size: 19vw; letter-spacing: 0.2em; padding-left: 0.2em; }
+    .title-line-2 { font-size: 5vw; margin-top: 0.5rem; }
+    .title-block { margin-bottom: 1.5rem; }
+    .desc-block { margin-bottom: 1.5rem; }
+    .desc-main { font-size: 1.1rem; max-width: 75%; }
+    .bottom-text { font-size: 10.5vw; margin-top: 1.5rem; letter-spacing: 0.2em; padding-left: 0.2em; }
 
     /* Show reserve button on mobile */
-    .mobile-reserve { margin-top: 1.5rem; }
+    .mobile-reserve { display: block !important; margin-top: 2rem; }
 
-    /* Food frame: mobile - hide desktop, show mobile frames */
-    .frame-top, .frame-bottom, .frame-left, .frame-right {
-      display: none !important;
-    }
-    .frame-top-m, .frame-bottom-m, .frame-left-m, .frame-right-m {
-      display: flex !important;
-    }
-    .frame-edge .fi img {
-      width: 35px !important;
-      height: 35px !important;
-    }
-    .frame-top-m, .frame-bottom-m {
-      height: 45px !important;
-      left: 0 !important; right: 0 !important;
-      flex-direction: row !important;
-    }
-    .frame-top-m { top: 0 !important; bottom: auto !important; }
-    .frame-bottom-m { bottom: 0 !important; top: auto !important; }
-    .frame-left-m, .frame-right-m {
-      width: 45px !important;
-      top: 45px !important;
-      bottom: 45px !important;
-      flex-direction: column !important;
-    }
-    .frame-left-m { left: 0 !important; right: auto !important; }
-    .frame-right-m { right: 0 !important; left: auto !important; }
+    /* Food images: solid border frame around hero */
+    .shape { animation: none !important; }
+
+    /* Top edge - 6 items */
+    .s1  { top: 0; left: 0; width: 70px; transform: rotate(-5deg); }
+    .s14 { top: 0; left: 17%; width: 60px; transform: rotate(12deg); }
+    .s8  { top: 0; left: 35%; width: 65px; transform: rotate(8deg); }
+    .s12 { top: 0; right: 35%; width: 60px; transform: rotate(-3deg); }
+    .s16 { top: 0; right: 17%; width: 60px; transform: rotate(10deg); }
+    .s2  { top: 0; right: 0; width: 70px; transform: rotate(-8deg); }
+
+    /* Left edge - 4 items */
+    .s10 { top: 15%; left: 0; width: 60px; transform: rotate(12deg); }
+    .s17 { top: 30%; left: 0; width: 55px; transform: rotate(-8deg); }
+    .s4  { top: 45%; left: 0; width: 65px; transform: rotate(-10deg); }
+    .s15 { top: 62%; left: 0; width: 75px; transform: rotate(5deg); }
+
+    /* Right edge - 4 items */
+    .s6  { top: 15%; right: 0; width: 60px; transform: rotate(-12deg); }
+    .s19 { top: 30%; right: 0; width: 60px; transform: rotate(5deg); }
+    .s3  { top: 45%; right: 0; width: 65px; transform: rotate(8deg); }
+    .s11 { top: 62%; right: 0; width: 60px; transform: rotate(-8deg); }
+
+    /* Bottom edge - 4 items */
+    .s9  { bottom: 0; left: 2%; width: 70px; transform: rotate(6deg); }
+    .s18 { bottom: 0; left: 28%; width: 60px; transform: rotate(-8deg); }
+    .s13 { bottom: 0; right: 28%; width: 65px; transform: rotate(5deg); }
+    .s5  { bottom: 0; right: 2%; width: 70px; transform: rotate(-6deg); }
 
     .about {
       padding: 1.5rem 0;
@@ -737,87 +681,28 @@
 
 <!-- ===== HERO ===== -->
 <div class="hero">
-  <!-- ===== FRAME BORDER ===== -->
-  <div class="frame-edge frame-top">
-    <div class="fi"><img src="onion.png" alt=""></div>
-    <div class="fi"><img src="bloodorange.png" alt=""></div>
-    <div class="fi"><img src="garlic.png" alt=""></div>
-    <div class="fi"><img src="tomato.png" alt=""></div>
-    <div class="fi"><img src="agnolotti.png" alt=""></div>
-    <div class="fi"><img src="lime.png" alt=""></div>
-    <div class="fi"><img src="wheat.png" alt=""></div>
-    <div class="fi"><img src="egg.png" alt=""></div>
-  </div>
-
-  <div class="frame-edge frame-bottom">
-    <div class="fi"><img src="lemon.png" alt=""></div>
-    <div class="fi"><img src="steak.png" alt=""></div>
-    <div class="fi"><img src="tuna.png" alt=""></div>
-    <div class="fi"><img src="olives.png" alt=""></div>
-    <div class="fi"><img src="sourdough.png" alt=""></div>
-    <div class="fi"><img src="cheese.png" alt=""></div>
-    <div class="fi"><img src="cucumber.png" alt=""></div>
-    <div class="fi"><img src="anchovy.png" alt=""></div>
-  </div>
-
-  <div class="frame-edge frame-left">
-    <div class="fi"><img src="avocado.png" alt=""></div>
-    <div class="fi"><img src="peach.png" alt=""></div>
-    <div class="fi"><img src="littlegem.png" alt=""></div>
-    <div class="fi"><img src="raspberry.png" alt=""></div>
-    <div class="fi"><img src="fish-head.png" alt=""></div>
-  </div>
-
-  <div class="frame-edge frame-right">
-    <div class="fi"><img src="orangechili.png" alt=""></div>
-    <div class="fi"><img src="jalapeno.png" alt=""></div>
-    <div class="fi"><img src="dill.png" alt=""></div>
-    <div class="fi"><img src="blueberry.png" alt=""></div>
-    <div class="fi"><img src="shiso.png" alt=""></div>
-  </div>
-
-  <!-- Mobile-only frame (5 top/bottom, 8 left/right) -->
-  <div class="frame-edge frame-top-m">
-    <div class="fi"><img src="onion.png" alt=""></div>
-    <div class="fi"><img src="bloodorange.png" alt=""></div>
-    <div class="fi"><img src="garlic.png" alt=""></div>
-    <div class="fi"><img src="tomato.png" alt=""></div>
-    <div class="fi"><img src="agnolotti.png" alt=""></div>
-  </div>
-
-  <div class="frame-edge frame-bottom-m">
-    <div class="fi"><img src="lemon.png" alt=""></div>
-    <div class="fi"><img src="steak.png" alt=""></div>
-    <div class="fi"><img src="tuna.png" alt=""></div>
-    <div class="fi"><img src="sourdough.png" alt=""></div>
-    <div class="fi"><img src="anchovy.png" alt=""></div>
-  </div>
-
-  <div class="frame-edge frame-left-m">
-    <div class="fi"><img src="avocado.png" alt=""></div>
-    <div class="fi"><img src="peach.png" alt=""></div>
-    <div class="fi"><img src="littlegem.png" alt=""></div>
-    <div class="fi"><img src="raspberry.png" alt=""></div>
-    <div class="fi"><img src="lime.png" alt=""></div>
-    <div class="fi"><img src="wheat.png" alt=""></div>
-    <div class="fi"><img src="egg.png" alt=""></div>
-    <div class="fi"><img src="fish-head.png" alt=""></div>
-  </div>
-
-  <div class="frame-edge frame-right-m">
-    <div class="fi"><img src="orangechili.png" alt=""></div>
-    <div class="fi"><img src="jalapeno.png" alt=""></div>
-    <div class="fi"><img src="dill.png" alt=""></div>
-    <div class="fi"><img src="blueberry.png" alt=""></div>
-    <div class="fi"><img src="shiso.png" alt=""></div>
-    <div class="fi"><img src="olives.png" alt=""></div>
-    <div class="fi"><img src="cheese.png" alt=""></div>
-    <div class="fi"><img src="cucumber.png" alt=""></div>
-  </div>
+  <div class="shape s1"><img src="onion.png" alt=""></div>
+  <div class="shape s2"><img src="garlic.png" alt=""></div>
+  <div class="shape s3"><img src="cilantro.png" alt=""></div>
+  <div class="shape s4"><img src="steak.png" alt=""></div>
+  <div class="shape s5"><img src="dill.png" alt=""></div>
+  <div class="shape s6"><img src="chili.png" alt=""></div>
+  <div class="shape s8"><img src="tomato.png" alt=""></div>
+  <div class="shape s9"><img src="cucumber.png" alt=""></div>
+  <div class="shape s10"><img src="avocado.png" alt=""></div>
+  <div class="shape s11"><img src="lemon.png" alt=""></div>
+  <div class="shape s12"><img src="wheat.png" alt=""></div>
+  <div class="shape s13"><img src="olives.png" alt=""></div>
+  <div class="shape s14"><img src="mint.png" alt=""></div>
+  <div class="shape s15"><img src="salmonhead.png" alt=""></div>
+  <div class="shape s16"><img src="lime.png" alt=""></div>
+  <div class="shape s17"><img src="chilicrisp.png" alt=""></div>
+  <div class="shape s18"><img src="maldon.png" alt=""></div>
+  <div class="shape s19"><img src="oldbay.png" alt=""></div>
 
   <div class="hero-content">
     <div class="title-block">
-      <div class="title-line-1">SEATED</div>
+      <div class="title-line-1"><span>S</span><span>E</span><span>A</span><span>T</span><span>E</span><span>D</span></div>
     </div>
     <div class="desc-block">
       <div class="desc-main">Seasonal &amp; local modern cuisine.<br>A private chef for your table.</div>
@@ -840,7 +725,7 @@
   <div class="meet-alex-text">
     <div class="about-title">Meet <em>Alex Silberberg</em></div>
     <p class="about-bio">
-      Alex is an LA native with extensive experience working in restaurants across the city. He started working the front of house with traditional wine, receiving his sommelier certificate while working at The Stonehaus. He then transitioned to working with natural wine at Here's Looking At You &amp; Dudley Market. Currently, he works as a private chef based in Malibu. He also pops up around LA with his concept "Oma's", a modern Jewish Deli. He believes in making things in their purest form, using freshly milled ancient grains in his sourdough baking and natural fermentation in his pickling. Alex draws inspiration from the environment around him, frequenting farmer's markets and his own garden for his ingredients.
+      Alex Silberberg has extensive experience working in restaurants across Los Angeles. He started working the front of house with traditional wine, receiving his sommelier certificate while working at The Stonehaus. He then transitioned to working with natural wine at Here's Looking At You &amp; Dudley Market. Currently, he works as a private chef based in Malibu. He also pops up around LA with his concept "Oma's" — a modern Jewish Deli. He believes in making things in their purest form, using freshly milled ancient grains and natural fermentation in his pickling and sourdough baking. Alex draws inspiration from the environment around him, frequenting farmer's markets and his own garden for his ingredients.
     </p>
     <div class="about-divider"></div>
     <div class="about-fav-label">Favorite LA Restaurants →</div>
@@ -852,21 +737,13 @@
 <section class="food-gallery">
   <div class="gallery-grid">
     <div class="gallery-item gi-1"><img src="pastrami.png" alt="pastrami"></div>
-    <div class="gallery-item gi-2"><img src="scallop.jpg" alt="scallop"></div>
-    <div class="gallery-item gi-3"><img src="steakfrites.jpg" alt="steak frites"></div>
-    <div class="gallery-item gi-4"><img src="tostada.jpg" alt="tostada"></div>
-    <div class="gallery-item gi-5"><img src="bread.png" alt="sourdough bread"></div>
-    <div class="gallery-item gi-6"><img src="chef-portrait.png" alt="chef alex"></div>
-    <div class="gallery-item gi-7"><img src="salad.png" alt="chopped salad"></div>
-    <div class="gallery-item gi-8"><img src="salmontartar.jpg" alt="salmon tartar"></div>
-    <div class="gallery-item gi-9"><img src="plating.jpg" alt="ceviche"></div>
-    <div class="gallery-item gi-10"><img src="flatbread.jpg" alt="flatbread"></div>
-    <div class="gallery-item gi-11"><img src="pasta.png" alt="fresh pasta"></div>
-    <div class="gallery-item gi-12"><img src="kitchen-action.png" alt="in the kitchen"></div>
-    <div class="gallery-item gi-13"><img src="milkshake.png" alt="milkshake"></div>
-    <div class="gallery-item gi-14"><img src="lavash.jpg" alt="lavash"></div>
-    <div class="gallery-item gi-15"><video src="pickles.mov" autoplay muted loop playsinline></video></div>
-    <div class="gallery-item gi-16"><img src="branzino.jpg" alt="branzino"></div>
+    <div class="gallery-item gi-2"><video src="pickles.mov" autoplay muted loop playsinline></video></div>
+    <div class="gallery-item gi-3"><img src="chef-portrait.png" alt="chef alex"></div>
+    <div class="gallery-item gi-4"><img src="bread.png" alt="sourdough bread"></div>
+    <div class="gallery-item gi-5"><img src="salad.png" alt="chopped salad"></div>
+    <div class="gallery-item gi-6"><img src="milkshake.png" alt="milkshake"></div>
+    <div class="gallery-item gi-7"><img src="kitchen-action.png" alt="in the kitchen"></div>
+    <div class="gallery-item gi-8"><img src="pasta.png" alt="fresh pasta"></div>
   </div>
 </section>
 
@@ -880,16 +757,16 @@
     </div>
     <form class="form-grid" onsubmit="handleSubmit(event)">
       <div class="form-row">
-        <div class="form-group"><label>your name</label><input type="text" name="name" placeholder="first & last" required></div>
-        <div class="form-group"><label>email</label><input type="email" name="email" placeholder="hello@you.com" required></div>
+        <div class="form-group"><label>your name</label><input type="text" placeholder="first & last" required></div>
+        <div class="form-group"><label>email</label><input type="email" placeholder="hello@you.com" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>phone</label><input type="tel" name="phone" placeholder="(310) 555-0000"></div>
-        <div class="form-group"><label>how many guests?</label><input type="number" name="guests" placeholder="2" min="1" max="50"></div>
+        <div class="form-group"><label>phone</label><input type="tel" placeholder="(310) 555-0000"></div>
+        <div class="form-group"><label>how many guests?</label><input type="number" placeholder="2" min="1" max="50"></div>
       </div>
       <div class="form-group">
         <label>type of request</label>
-        <select name="request_type" required>
+        <select required>
           <option value="" disabled selected>pick one...</option>
           <option>family style</option>
           <option>buffet</option>
@@ -900,10 +777,10 @@
         </select>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>preferred date</label><input type="date" name="date"></div>
+        <div class="form-group"><label>preferred date</label><input type="date"></div>
         <div class="form-group">
           <label>preferred time</label>
-          <select name="time">
+          <select>
             <option value="" disabled selected>pick a time...</option>
             <option>breakfast (8am – 11am)</option>
             <option>lunch (11am – 2pm)</option>
@@ -917,25 +794,25 @@
       <div class="checkbox-group">
         <span class="group-label">dietary restrictions / allergies</span>
         <div class="checkbox-options">
-          <input type="checkbox" id="veg" name="dietary" value="vegetarian"><label for="veg">vegetarian</label>
-          <input type="checkbox" id="vgn" name="dietary" value="vegan"><label for="vgn">vegan</label>
-          <input type="checkbox" id="gf" name="dietary" value="gluten-free"><label for="gf">gluten-free</label>
-          <input type="checkbox" id="df" name="dietary" value="dairy-free"><label for="df">dairy-free</label>
-          <input type="checkbox" id="nut" name="dietary" value="nut allergy"><label for="nut">nut allergy</label>
-          <input type="checkbox" id="shell" name="dietary" value="shellfish"><label for="shell">shellfish</label>
-          <input type="checkbox" id="kosh" name="dietary" value="kosher"><label for="kosh">kosher</label>
-          <input type="checkbox" id="oth" name="dietary" value="other"><label for="oth">other</label>
+          <input type="checkbox" id="veg"><label for="veg">vegetarian</label>
+          <input type="checkbox" id="vgn"><label for="vgn">vegan</label>
+          <input type="checkbox" id="gf"><label for="gf">gluten-free</label>
+          <input type="checkbox" id="df"><label for="df">dairy-free</label>
+          <input type="checkbox" id="nut"><label for="nut">nut allergy</label>
+          <input type="checkbox" id="shell"><label for="shell">shellfish</label>
+          <input type="checkbox" id="kosh"><label for="kosh">kosher</label>
+          <input type="checkbox" id="oth"><label for="oth">other</label>
         </div>
       </div>
       <div class="checkbox-group">
         <span class="group-label">wine pairing</span>
         <div class="checkbox-options">
-          <input type="checkbox" id="wine-yes" name="wine" value="yes please"><label for="wine-yes">yes, please!</label>
-          <input type="checkbox" id="wine-no" name="wine" value="no thanks"><label for="wine-no">no thanks</label>
-          <input type="checkbox" id="wine-maybe" name="wine" value="lets discuss"><label for="wine-maybe">let's discuss</label>
+          <input type="checkbox" id="wine-yes"><label for="wine-yes">yes, please!</label>
+          <input type="checkbox" id="wine-no"><label for="wine-no">no thanks</label>
+          <input type="checkbox" id="wine-maybe"><label for="wine-maybe">let's discuss</label>
         </div>
       </div>
-      <div class="form-group"><label>tell us more</label><textarea name="message" placeholder="the occasion, flavor preferences, anything else..."></textarea></div>
+      <div class="form-group"><label>tell us more</label><textarea placeholder="the occasion, flavor preferences, anything else..."></textarea></div>
       <button type="submit" class="submit-btn" id="submitBtn">send it →</button>
     </form>
   </div>
@@ -955,34 +832,9 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
-    const form = e.target;
-    const card = document.querySelector('.form-card');
-    btn.textContent = "sending...";
+    btn.textContent = "thank you! we'll be in touch ✿";
+    btn.classList.add('sent');
     btn.disabled = true;
-
-    const formData = new FormData(form);
-
-    fetch('https://formspree.io/f/xjgeqwwa', {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        card.innerHTML = `
-          <button class="form-close" onclick="closeForm(event)" style="color:var(--cream);">✕</button>
-          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;text-align:center;padding:2rem;background:var(--dark);border-radius:16px;height:100%;">
-            <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:2.2rem;color:var(--cream);margin-bottom:1rem;">Thank You!</h2>
-            <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.85rem;color:var(--cream);line-height:1.8;max-width:400px;">We will be in touch with you soon to make your experience happen!</p>
-          </div>
-        `;
-      } else {
-        btn.textContent = "oops, try again →";
-        btn.disabled = false;
-      }
-    }).catch(() => {
-      btn.textContent = "oops, try again →";
-      btn.disabled = false;
-    });
   }
 
   // Scroll reveal for about section
