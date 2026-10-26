@@ -101,7 +101,7 @@
     opacity: 0; animation: textIn 0.8s ease 0.2s forwards;
   }
 
-  .title-block { margin-bottom: 2rem; width: 100%; }
+  .title-block { margin-bottom: 1.5rem; width: 100%; }
 
   .title-line-1 {
     font-family: alphabet-soup-pro, sans-serif;
@@ -125,7 +125,7 @@
     margin-top: 0.5rem; text-align: center;
   }
 
-  .desc-block { margin-bottom: 1rem; }
+  .desc-block { margin-bottom: 1.5rem; }
   .desc-top {
     font-family: 'Instrument Serif', serif;
     font-size: clamp(0.9rem, 1.8vw, 1.15rem);
@@ -176,7 +176,7 @@
     font-weight: 400; font-size: clamp(2.5rem, 8vw, 8rem);
     line-height: 0.82; color: var(--cream);
     letter-spacing: 0.25em; text-transform: uppercase;
-    text-align: center; margin-top: 0.5rem;
+    text-align: center; margin-top: 0rem;
   }
   .meet-alex {
     width: 100%;
@@ -569,31 +569,31 @@
     /* Food images: solid border frame around hero */
     .shape { animation: none !important; }
 
-    /* Top edge - 6 items */
-    .s1  { top: 0; left: 0; width: 70px; transform: rotate(-5deg); }
-    .s14 { top: 0; left: 17%; width: 60px; transform: rotate(12deg); }
-    .s8  { top: 0; left: 35%; width: 65px; transform: rotate(8deg); }
-    .s12 { top: 0; right: 35%; width: 60px; transform: rotate(-3deg); }
-    .s16 { top: 0; right: 17%; width: 60px; transform: rotate(10deg); }
-    .s2  { top: 0; right: 0; width: 70px; transform: rotate(-8deg); }
+    /* Top edge - 6 items evenly spaced */
+    .s1  { top: 0; left: 0%;  width: 55px; transform: rotate(-5deg); }
+    .s14 { top: 0; left: 18%; width: 55px; transform: rotate(12deg); }
+    .s8  { top: 0; left: 36%; width: 55px; transform: rotate(8deg); }
+    .s12 { top: 0; left: 54%; width: 55px; transform: rotate(-3deg); }
+    .s16 { top: 0; left: 72%; width: 55px; transform: rotate(10deg); }
+    .s2  { top: 0; left: 88%; width: 55px; transform: rotate(-8deg); }
 
-    /* Left edge - 4 items */
-    .s10 { top: 15%; left: 0; width: 60px; transform: rotate(12deg); }
-    .s17 { top: 30%; left: 0; width: 55px; transform: rotate(-8deg); }
-    .s4  { top: 45%; left: 0; width: 65px; transform: rotate(-10deg); }
-    .s15 { top: 62%; left: 0; width: 75px; transform: rotate(5deg); }
+    /* Left edge - 4 items evenly spaced */
+    .s10 { top: 15%; left: 0; width: 55px; transform: rotate(12deg); }
+    .s17 { top: 35%; left: 0; width: 55px; transform: rotate(-8deg); }
+    .s4  { top: 55%; left: 0; width: 55px; transform: rotate(-10deg); }
+    .s15 { top: 75%; left: 0; width: 55px; transform: rotate(5deg); }
 
-    /* Right edge - 4 items */
-    .s6  { top: 15%; right: 0; width: 60px; transform: rotate(-12deg); }
-    .s19 { top: 30%; right: 0; width: 60px; transform: rotate(5deg); }
-    .s3  { top: 45%; right: 0; width: 65px; transform: rotate(8deg); }
-    .s11 { top: 62%; right: 0; width: 60px; transform: rotate(-8deg); }
+    /* Right edge - 4 items evenly spaced */
+    .s6  { top: 15%; left: 86%; width: 55px; transform: rotate(-12deg); }
+    .s19 { top: 35%; left: 86%; width: 55px; transform: rotate(5deg); }
+    .s3  { top: 55%; left: 86%; width: 55px; transform: rotate(8deg); }
+    .s11 { top: 75%; left: 86%; width: 55px; transform: rotate(-8deg); }
 
-    /* Bottom edge - 4 items */
-    .s9  { bottom: 0; left: 2%; width: 70px; transform: rotate(6deg); }
-    .s18 { bottom: 0; left: 28%; width: 60px; transform: rotate(-8deg); }
-    .s13 { bottom: 0; right: 28%; width: 65px; transform: rotate(5deg); }
-    .s5  { bottom: 0; right: 2%; width: 70px; transform: rotate(-6deg); }
+    /* Bottom edge - 4 items evenly spaced */
+    .s9  { bottom: 0; left: 2%;  width: 55px; transform: rotate(6deg); }
+    .s18 { bottom: 0; left: 30%; width: 55px; transform: rotate(-8deg); }
+    .s13 { bottom: 0; left: 60%; width: 55px; transform: rotate(5deg); }
+    .s5  { bottom: 0; left: 88%; width: 55px; transform: rotate(-6deg); }
 
     .about {
       padding: 1.5rem 0;
